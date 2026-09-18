@@ -284,7 +284,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .contact__ico svg { width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 .contact__list strong { display: block; font-family: var(--font-head); font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: .1rem; }
-.contact__list a { font-size: 1.1rem; font-weight: 600; color: var(--navy-800); }
+.contact__list a { font-size: 1.1rem; font-weight: 600; color: var(--navy-800); overflow-wrap: anywhere; }
 .contact__list a:hover { color: var(--accent-d); }
 .contact__plain { font-size: 1.05rem; color: var(--navy-700); }
 
@@ -297,7 +297,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .field input, .field select, .field textarea {
   width: 100%;
   font-family: var(--font-body);
-  font-size: .98rem;
+  font-size: 16px; /* 16px min avoids iOS zoom-on-focus */
   color: var(--text);
   padding: .8rem .9rem;
   border: 1.5px solid var(--border);
@@ -322,7 +322,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .brand--footer .brand__text span { color: #999999; }
 .footer__brand p { margin-top: 1rem; font-size: .92rem; max-width: 280px; }
 .footer__col h4 { color: #fff; font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1rem; }
-.footer__col a, .footer__plain { display: block; color: #c9c9c9; font-size: .94rem; margin-bottom: .55rem; transition: color .2s; }
+.footer__col a, .footer__plain { display: block; color: #c9c9c9; font-size: .94rem; margin-bottom: .55rem; transition: color .2s; overflow-wrap: anywhere; }
 .footer__col a:hover { color: var(--accent); }
 .footer__bar { border-top: 1px solid rgba(255, 255, 255, .08); }
 .footer__bar-inner { display: flex; justify-content: space-between; align-items: center; padding-block: 1.1rem; font-size: .86rem; gap: 1rem; flex-wrap: wrap; }
@@ -349,6 +349,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* backdrop-filter makes the header the containing block for the fixed
      nav panel, clipping it to the header height — disable it on mobile. */
   .header { backdrop-filter: none; }
+  .header__inner { min-height: 80px; }
+  .brand__logo { height: 62px; }
 
   .nav-toggle { display: flex; }
   .nav {
@@ -359,7 +361,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     align-items: stretch;
     gap: 0;
     background: var(--navy-900);
-    padding: 138px 26px 2rem;
+    padding: 100px 26px 2rem;
     transform: translateX(100%);
     transition: transform .35s var(--ease);
     box-shadow: -20px 0 60px rgba(0, 0, 0, .4);
@@ -372,8 +374,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (max-width: 560px) {
-  .header__inner { min-height: 96px; }
-  .brand__logo { height: 75px; }
   .grid--4, .grid--3 { grid-template-columns: 1fr; }
   .why__stats { grid-template-columns: 1fr 1fr; }
   .field-row { grid-template-columns: 1fr; }
